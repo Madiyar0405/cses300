@@ -1,24 +1,18 @@
 package IntroductoryProblems;
-
-import java.util.HashSet;
 import java.util.Scanner;
-import java.util.Set;
 
 public class MissingNumber {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Set<Integer> nums = new HashSet<Integer>();
-
         int n = sc.nextInt();
+
+        long exp_sum = (long) n * (n + 1) / 2;
+        long act_sum = 0;
         for (int i = 0; i < n-1 ; i++) {
-            nums.add(sc.nextInt());
+            int num = sc.nextInt();
+            act_sum += num;
         }
 
-        for (int i = 1; i <=n ; i++) {
-            if(!nums.contains(i)) {
-                System.out.println(i);
-                break;
-            }
-        }
+        System.out.println(exp_sum - act_sum);
     }
 }
